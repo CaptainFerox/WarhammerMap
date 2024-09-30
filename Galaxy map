@@ -1,0 +1,116 @@
+<style>
+    #galaxy-map {
+        width: 100%;
+        height: 500px;
+        background-color: #000;
+        position: relative;
+        overflow: hidden;
+    }
+    .star {
+        position: absolute;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+    .planet, .chaotic-void, .ship {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .planet:hover, .chaotic-void:hover, .ship:hover {
+        transform: scale(1.2);
+    }
+    .chaotic-void {
+        background: radial-gradient(circle at 30% 30%, #ff0000, #000000);
+        box-shadow: 0 0 10px #ff0000;
+        overflow: visible;
+    }
+    .tentacle {
+        position: absolute;
+        background-color: #ff0000;
+        width: 2px;
+        height: 20px;
+        transform-origin: bottom center;
+        animation: tentacle-move 3s infinite ease-in-out;
+    }
+    @keyframes tentacle-move {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(30deg); }
+    }
+    .ship {
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    #sun {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: radial-gradient(circle at 30% 30%, #ffff00, #ff8c00);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 20px #ff8c00;
+    }
+    #info-panel {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 300px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .planet-popup {
+        display: none;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+    #event-log {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 300px;
+        height: 200px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        overflow-y: auto;
+    }
+    .event {
+        margin-bottom: 5px;
+    }
+    .chaos-controlled {
+        border: 2px solid #ff0000;
+        box-shadow: 0 0 10px #ff0000;
+    }
+    #ship-creation {
+        margin-top: 20px;
+    }
+    #ship-creation input, #ship-creation select, #ship-creation button {
+        margin-top: 5px;
+        width: 100%;
+    }
+    #open-ship-creation {
+        position: fixed;
+        bottom: 230px;
+        left: 20px;
+        width: 300px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #open-ship-creation:hover {
+        background-color: #45a049;
+    }
